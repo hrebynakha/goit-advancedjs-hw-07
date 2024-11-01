@@ -14,26 +14,28 @@
 
 */
 
-
 class Employee {
-  constructor(public name: string, protected salary: number, private department?: string) {}
+  constructor(
+    public name: string,
+    protected salary: number,
+    private department?: string
+  ) {}
   getEmployeeDetails() {
     return `Name: ${this.name}, Department: ${this.department}, Salary: ${this.salary}`;
   }
 }
 
 class Manager extends Employee {
-  constructor(public name: string, protected salary: number) {
-    super(name, salary = salary + 10000)
+  constructor(name: string, salary: number) {
+    super(name, salary + 10000, "Management");
   }
 }
 
-const emp = new Employee("Andrii", 7890, "IT")
+const emp = new Employee("Andrii", 20000, "IT");
 
-console.log(emp.getEmployeeDetails());
+console.log(emp.getEmployeeDetails()); // Name: Andrii, Department: IT, Salary: 20000
 
-const mgr = new Manager("Anatolii", 2000)
-
-console.log(mgr.getEmployeeDetails())
+const mgr = new Manager("Anatolii", 20000); // Name: Anatolii, Department: Management, Salary: 30000
+console.log(mgr.getEmployeeDetails());
 
 export {};
